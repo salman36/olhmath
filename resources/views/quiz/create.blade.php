@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <div class="input-group">
 
-                        <input type="text" name="name" placeholder="Student Class" class="form-control">
+                        <input type="text" name="name" placeholder="Student Class" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -17,9 +17,8 @@
                         <label for="cars">Choose Student Class:</label>
 
                         <select name="stclss">
-                            @foreach ($student_class as $student )
-
                             <option value="">Select Option</option>
+                            @foreach ($student_class as $student )
                             <option value="{{$student->id}}">{{$student->class_name}}</option>
 
                             @endforeach

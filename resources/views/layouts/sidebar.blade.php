@@ -1,7 +1,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="{{url('/home')}}">
                     <img src="images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -9,7 +9,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="{{url('/home')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
 
                         </li>
@@ -22,13 +22,13 @@
                             <a href="{{url('/quiz-list')}}">
                                 <i class="fas fa-question-circle"></i>Quiz</a>
                         </li>
-                        <li>
-                            <a href="chart.html">
+                        {{-- <li>
+                            <a href="{{url('/question')}}">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="{{url('/question-list')}}">
+                                <i class="fas fa-table"></i>Question</a>
                         </li>
                         <li>
                             <a href="form.html">

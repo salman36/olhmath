@@ -1,10 +1,10 @@
 @extends('layouts.master')
 @section('content')
 <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-12">
         <div class="table-responsive table--no-card m-b-30">
             <div class="form-actions form-group">
-                <a class="btn btn-primary" href="{{url('/quiz-create')}}" >Create Quiz</a>
+                <a class="btn btn-primary" href="{{url('/question')}}" >Create Question</a>
             </div>
             @if ($message = Session::get('success'))
                 <div class="alert alert-success">
@@ -15,23 +15,27 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Class Name</th>
                         <th>Quiz Name</th>
-                        <th>Action</th>
+                        <th>Question Statement</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Option C</th>
+                        <th>Option D</th>
+                        <th>Correct</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($quiz_data as $data )
+                    @foreach ($question_data as $data )
                     </tr>
                     <td>{{$data->id}}</td>
-                    <td>{{$data->st_class->class_name}}</td>
-                    <td>{{$data->name}}</td>
-                    <td>
-                        <a class="btn btn-primary" href="{{ route('quiz.edit', $data->id) }}">Edit</a>
-
-                    </td>
-
+                    <td>{{$data->quiz->name}}</td>
+                    <td>{{$data->question_name}}</td>
+                    <td>{{$data->option_a}}</td>
+                    <td>{{$data->option_b}}</td>
+                    <td>{{$data->option_c}}</td>
+                    <td>{{$data->option_d}}</td>
+                    <td>{{$data->correct}}</td>
 
                     <tr>
                         @endforeach

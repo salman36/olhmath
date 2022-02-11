@@ -33,4 +33,18 @@ Route::get('/stClass', [App\Http\Controllers\stClassController::class, 'show']);
 Route::get('/quiz-list', [App\Http\Controllers\QuizController::class, 'index'])->name('quiz.list');
 Route::get('/quiz-create', [App\Http\Controllers\QuizController::class, 'show']);
 Route::post('/quiz-create', [App\Http\Controllers\QuizController::class, 'store']);
+Route::get('/quiz/edit/{id}', [App\Http\Controllers\QuizController::class, 'edit'])->name('quiz.edit');
+
+Route::get('/question-list', [App\Http\Controllers\QuestionController::class, 'index'])->name('question.list');
+Route::get('/question', [App\Http\Controllers\QuestionController::class, 'show']);
+Route::post('/question-create', [App\Http\Controllers\QuestionController::class, 'store']);
+
+
+// /// Admin
+
+// Route::get('admin-login', [App\Http\Controllers\AdminController::class, 'index']);
+// Route::get('register', [App\Http\Controllers\AdminController::class, 'registration']);
+
+
+
 

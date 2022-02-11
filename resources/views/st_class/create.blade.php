@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <div class="input-group">
 
-                        <input type="text" name="name" placeholder="Student Class" class="form-control">
+                        <input type="text" name="name" placeholder="Student Class" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-actions form-group">

@@ -24,7 +24,7 @@ class stClassController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required',
 
         ]);
@@ -32,7 +32,7 @@ class stClassController extends Controller
         $data['class_name'] = $request->name;
 
         $student_class = stClass::create($data);
-        return redirect()->route('clss.list');
+        return redirect()->route('clss.list')->with('success', 'Class created successfully.');
 
     }
 }

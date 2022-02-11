@@ -26,7 +26,7 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'stclss' => 'required',
 
@@ -36,6 +36,15 @@ class QuizController extends Controller
         $data['name'] = $request->name;
 
         $quiz = Quiz::create($data);
-        return redirect()->route('quiz.list');
+        return redirect()->route('quiz.list')->with('success', 'Quiz created successfully.');
+    }
+
+    public function edit($id)
+    {
+
+        // $student_class = stClass::all();
+        $quiz_data = Quiz::where('id', $id)->first();
+        return view('quiz.update',compact('quiz_data'));
+
     }
 }

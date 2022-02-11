@@ -6,6 +6,11 @@
             <div class="form-actions form-group">
                 <a class="btn btn-primary" href="{{url('/stClass')}}" >Create Class</a>
             </div>
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }} </p>
+                </div>
+            @endif
             <table class="table table-borderless table-striped table-earning">
                 <thead>
                     <tr>
