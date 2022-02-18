@@ -7,24 +7,25 @@
     <div class="card">
         <div class="card-header">ADD QUESTION</div>
         <div class="card-body card-block">
-            <form action="{{url('/question-create')}}" method="post">
+            <form action="{{url('/question/update/'.$question_data->id)}}" method="post">
                 @csrf
                 <div class="form-group">
                     <div class="input-group">
                         <label for="cars">Choose Quiz:</label>
 
                         <select name="quiz_id">
-                            <option value="">Select Option</option>
+                            <option value="{{$question_data->quiz_id}}">{{$question_data->quiz->name}}</option>
+
                             @foreach ($quiz_data as $quiz )
                             <option value="{{$quiz->id}}">{{$quiz->name}}</option>
-
                             @endforeach
+
                         </select>
                     </div>
                 </div>
                 <div class="input-group">
 
-                    <textarea class="form-control rounded-0" rows="8" placeholder="Enter Question" name="question_statement" style="height:100%;" required></textarea>
+                    <textarea class="form-control rounded-0" rows="8" placeholder="Enter Question" name="question_statement"  style="height:100%;" required>{{$question_data->question_name}}</textarea>
 
                 </div>
                 <div class="input-group">
@@ -55,23 +56,23 @@
                 <div class="form-group">
                     <div class="input-group">
 
-                        <input type="text" name="option_a" placeholder="Option A" class="form-control" required>
-                        <input type="text" name="option_b" placeholder="Option B" class="form-control" required>
+                        <input type="text" name="option_a" placeholder="Option A" value="{{$question_data->option_a}}" class="form-control" required>
+                        <input type="text" name="option_b" placeholder="Option B" value="{{$question_data->option_b}}" class="form-control" required>
 
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
 
-                        <input type="text" name="option_c" placeholder="Option C" class="form-control" required>
-                        <input type="text" name="option_d" placeholder="Option D" class="form-control" required>
+                        <input type="text" name="option_c" placeholder="Option C" value="{{$question_data->option_c}}" class="form-control" required>
+                        <input type="text" name="option_d" placeholder="Option D" value="{{$question_data->option_d}}" class="form-control" required>
 
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
 
-                        <input type="text" name="correct" placeholder="Correct Answer" class="form-control" required>
+                        <input type="text" name="correct" placeholder="Correct Answer" value="{{$question_data->correct}}" class="form-control" required>
 
                     </div>
                 </div>

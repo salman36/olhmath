@@ -7,6 +7,7 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
+use App\Models\Quiz;
 use App\Models\stClass;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -73,13 +74,17 @@ class AuthController extends Controller
 
         $data = DB::table('st_class')
         ->join('quiz', 'st_class.id', '=', 'quiz.st_class_id')
+        ->where('st_class.id',$id)
         ->join('questions', 'questions.quiz_id', '=', 'quiz.id')
         ->get();
 
-        return response()->json([
-			'status' => 'Success',
-			'data' => $data
-		]);
+//         $data = Quiz::with('st_class')->where('st_class_id', $id)->get();
+// dd($data[0]['st_class_id']);
+        dd($data);
+        // return response()->json([
+		// 	'status' => 'Success',
+		// 	'data' => $data
+		// ]);
 
 
     }

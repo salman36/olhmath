@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Quiz extends Model
 {
     use HasFactory;
-    protected $table = 'quiz';  
+    protected $table = 'quiz';
 
 
     protected $fillable = [
@@ -20,5 +20,10 @@ class Quiz extends Model
     public function st_class()
     {
     	return $this->belongsTo('App\Models\stClass');
+    }
+
+    public function question()
+    {
+    	return $this->belongsTo('App\Models\Questilon');
     }
 }

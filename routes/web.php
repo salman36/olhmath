@@ -28,16 +28,27 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/classdata', [App\Http\Controllers\stClassController::class, 'index'])->name('clss.list');
 Route::post('/studentClass', [App\Http\Controllers\stClassController::class, 'store']);
+Route::get('/class/edit/{id}', [App\Http\Controllers\stClassController::class, 'edit']);
+Route::post('/stclass/update/{id}',[App\Http\Controllers\stClassController::class,'Update']);
 Route::get('/stClass', [App\Http\Controllers\stClassController::class, 'show']);
 
 Route::get('/quiz-list', [App\Http\Controllers\QuizController::class, 'index'])->name('quiz.list');
 Route::get('/quiz-create', [App\Http\Controllers\QuizController::class, 'show']);
 Route::post('/quiz-create', [App\Http\Controllers\QuizController::class, 'store']);
 Route::get('/quiz/edit/{id}', [App\Http\Controllers\QuizController::class, 'edit'])->name('quiz.edit');
+Route::post('/quiz/update/{id}',[App\Http\Controllers\QuizController::class,'Update']);
+// Route::get('/quiz/delete/{id}',[App\Http\Controllers\QuizController::class,'Delete']);
+
 
 Route::get('/question-list', [App\Http\Controllers\QuestionController::class, 'index'])->name('question.list');
 Route::get('/question', [App\Http\Controllers\QuestionController::class, 'show']);
 Route::post('/question-create', [App\Http\Controllers\QuestionController::class, 'store']);
+Route::get('/question/edit/{id}', [App\Http\Controllers\QuestionController::class, 'edit'])->name('question.edit');
+Route::post('/question/update/{id}',[App\Http\Controllers\QuestionController::class,'Update']);
+Route::get('/question/delete/{id}',[App\Http\Controllers\QuestionController::class,'Delete']);
+
+
+
 
 
 // /// Admin

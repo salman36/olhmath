@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quiz;
 use App\Models\stClass;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuizController extends Controller
 {
@@ -42,9 +43,25 @@ class QuizController extends Controller
     public function edit($id)
     {
 
-        // $student_class = stClass::all();
+        $student_class = stClass::all();
         $quiz_data = Quiz::where('id', $id)->first();
-        return view('quiz.update',compact('quiz_data'));
+        return view('quiz.edit',compact('quiz_data', 'student_class'));
+
+    }
+
+    public function Update(Request $request, $id)
+    {
+        $data = array();
+        $data['st_class_id'] = $request->stclss;
+        $data['name'] = $request->name;
+        DB::table('quiz')->where('id',$id)->update($data);
+		return redirect()->route('quiz.list')->with('success', 'Quiz updated successfully.');
+    }
+
+    public function Delete($id)
+    {
+        $quiz = Quiz::where('id',$id)->delete();
+		return redirect()->route('quiz.list')->with('success', 'Quiz Deleted successfully.');
 
     }
 }
