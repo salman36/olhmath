@@ -18,7 +18,7 @@
                         <th>Class Name</th>
                         <th>Quiz Name</th>
                         <th>Edit</th>
-                        {{-- <th>Delete</th> --}}
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,10 +32,10 @@
                         <a class="btn btn-primary" href="{{ route('quiz.edit', $data->id) }}">Edit</a>
 
                     </td>
-                    {{-- <td>
+                    <td>
                         <a class="btn btn-danger" href="{{ URL::to('/quiz/delete/' . $data->id) }}"
                             onclick="return confirm('are you sure?')">Delete</a>
-                    </td> --}}
+                    </td>
 
 
                     <tr>

@@ -37,7 +37,7 @@ Route::get('/quiz-create', [App\Http\Controllers\QuizController::class, 'show'])
 Route::post('/quiz-create', [App\Http\Controllers\QuizController::class, 'store']);
 Route::get('/quiz/edit/{id}', [App\Http\Controllers\QuizController::class, 'edit'])->name('quiz.edit');
 Route::post('/quiz/update/{id}',[App\Http\Controllers\QuizController::class,'Update']);
-// Route::get('/quiz/delete/{id}',[App\Http\Controllers\QuizController::class,'Delete']);
+Route::get('/quiz/delete/{id}',[App\Http\Controllers\QuizController::class,'Delete']);
 
 
 Route::get('/question-list', [App\Http\Controllers\QuestionController::class, 'index'])->name('question.list');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
 use App\Models\Quiz;
 use App\Models\stClass;
 use Illuminate\Http\Request;
@@ -60,6 +61,7 @@ class QuizController extends Controller
 
     public function Delete($id)
     {
+        $question = Question::where('quiz_id',$id)->delete();
         $quiz = Quiz::where('id',$id)->delete();
 		return redirect()->route('quiz.list')->with('success', 'Quiz Deleted successfully.');
 
